@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AR Business Card - Amirth Noni</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+    #arjs-video {
+      width: 100%;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+    .card {
+      width: 300px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+    .card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+    .card h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .card p {
+      font-size: 16px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div id="arjs-video"></div>
+  <div class="card">
+    <img src="https://via.placeholder.com/100" alt="Amirth Noni Logo">
+    <h2>Amirth Noni</h2>
+    <p>Your Business Card Content Goes Here</p>
+    <p>Contact: info@amirthnoni.com</p>
+  </div>
+
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ar.js/aframe/build/aframe-ar.js"></script>
+  <script>
+    AFRAME.registerComponent('business-card', {
+      init: function () {
+        const businessCard = document.createElement('a-entity');
+        businessCard.setAttribute('geometry', {
+          primitive: 'plane',
+          width: 1.5,
+          height: 1
+        });
+        businessCard.setAttribute('material', {
+          src: 'https://via.placeholder.com/300',  // Replace with actual image URL
+          transparent: true
+        });
+        businessCard.setAttribute('position', '0 0 -2');
+        this.el.appendChild(businessCard);
+      }
+    });
+  </script>
+</body>
+</html>
